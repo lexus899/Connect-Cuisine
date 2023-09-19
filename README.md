@@ -4,17 +4,21 @@ In our project, we worked in a group to build a full-stack crowdfunding app usin
 
 ## User Stories
 
-* As a user, I want to see a variety of new and local food spots in my area.
+* As a user, I want to see blogs about local food spots in my area.
 
-* As a user, I want to be able to create an account.
+* As a user I want to have an option to change the category of food im looking for.
 
-* As a registered user, I want to be able to see the restaurants I visited and save them for later.
+* As a user, I want to be able to create an account, login, and logout.
+
+* As a user I want to be able to create a post about my experience at restaurants in my area, and include an image.
+
+* As a registered user, I want to be able to discuss restaurant experiences with users in my area.
 
 ### Acceptance Criteria
 
-* It's done when the `/` homepage route renders a list of all restaurants from the database.
+* It's done when the `/` homepage route renders a list of all blogs from the database.
 
-* It's done when the `/project/:id` route renders an individuals restaurant history based on the route parameter id.
+* It's done when the `/user/:id` route renders an individuals blog based on the route parameter id.
 
 * It's done when the `/login` route renders a form to log in and a form to create a new account.
 
@@ -22,19 +26,11 @@ In our project, we worked in a group to build a full-stack crowdfunding app usin
 
 * It's done when a new user can create an account on the login page and then be immediately logged in with a session.
 
-* It's done when the `/profile` route renders the logged-in user's history and a form to refresh your history.
+* It's done when a user on the profile page can use the form to create a new post the database.
 
-* It's done when only a logged in user can visit the `/profile` route.
-
-* It's done when a logged in user is redirected to `/profile` when they try to visit `/login` again.
-
-* It's done when a user on the profile page can use the form to create a new Save list in the database.
-
-* It's done when a user on the profile page can select a "Delete" button to remove their history from the database.
+* It's done when a user on the post page can select a "Delete" button to remove their post from the database.
 
 * It's done when a logged-in user can select a "Logout" button to remove their session.
-
-* It's done when the session for a logged-in user expires after a set time.
 
 * It's done when the API routes to create and delete posts are protected from non logged-in users.
 
@@ -46,32 +42,30 @@ In our project, we worked in a group to build a full-stack crowdfunding app usin
 
 * The database models have the following fields and associations:
 
-  * `User`
+  * `UserLogin`
 
-    * `id`: primary key
-
-    * `name`
+    * `username`
 
     * `email`
 
     * `password`
 
-  * `History`
-
-    * `id`: primary key
+  * `Post`
 
     * `name`
 
     * `description`
 
-    * `date_created`
+    * `edit button`
 
-    * `history`
+    * `delete button`
+
+    * `date_created`
 
     * `user_id`: foreign key that references `User.id`
 
-  * Users have a list of restaurant history, and any history belong to a user.
+  * Users have a list of other blogs, and any personal blog belongs to a user.
 
-    * If a user is deleted, all associated projects are also deleted.
+    * If a user is deleted, all associated blogs are also deleted.
 
 ---
